@@ -17,7 +17,7 @@ public class Parqueo {
     private boolean parqueo_techado;
     private boolean parqueo_aereo;
     private int frecuencia_de_uso;
-    private int tiempo_de_uso;
+    private int tiempo_de_uso; //EN MINUTOS
     private boolean parqueo_ocupado;
 
     /**

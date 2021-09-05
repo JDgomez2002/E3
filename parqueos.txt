@@ -1,0 +1,5 @@
+Parqueo 1,Grande,false,false,0,0,false
+Parqueo 2,Pequeno,false,false,0,0,false
+Parqueo 3,Grande,false,false,0,0,false
+Parqueo 4,Mediano,false,false,0,0,false
+Parqueo 5,Grande,false,false,0,0,false
