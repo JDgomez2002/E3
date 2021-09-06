@@ -9,8 +9,6 @@
 
 import java.time.LocalTime;
 
-import javax.management.RuntimeErrorException;
-
 /**
  * Clase Carro.
  * 
@@ -27,7 +25,7 @@ public class Carro {
     private String modelo;
 
     /**
-     * Constructor Carro.
+     * Constructor Carro con propiedades para leer en el archivo txt.
      * 
      * @author José Daniel Gómez Cabrera
      * @version Carro 1.1

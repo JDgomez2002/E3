@@ -8,6 +8,7 @@
 //Actividad: Ejercicio 3
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -20,7 +21,7 @@ import java.util.Scanner;
 public class FileReader {
     
     /**
-     * método para leer con clase File los datos del archivo parqueos.txt.
+     * metodo para leer con clase File los datos del archivo parqueos.txt.
      * recibe todos los datos, y lo regresa todo como arreglo con toda la información.
      * El constructor de parqueo recibe el arreglo para poder inicializar las ArrayList de Estacionamiento cada vez que se ejecuta el programa.
      * 
@@ -46,7 +47,7 @@ public class FileReader {
     }
     
     /**
-     * método para leer con clase File los datos del archivo carros.txt.
+     * metodo para leer con clase File los datos del archivo carros.txt.
      * recibe todos los datos, y lo regresa todo como arreglo con toda la información.
      * El constructor de carro recibe el arreglo para poder inicializar las ArrayList de Estacionamiento cada vez que se ejecuta el programa.
      * 
@@ -71,8 +72,52 @@ public class FileReader {
         }
     }
     
-    public static String[] leer_info_parqueo(){
-        
+    /**
+     * metodo para leer con clase File los datos del archivo infoEstacionamiento.txt.
+     * recibe todos los datos, y lo regresa todo como arreglo con toda la información.
+     * El constructor de Estacionamiento recibe el arreglo para poder inicializar las propiedades de Estacionamiento cada vez que se ejecuta el programa.
+     * 
+     * @author José Daniel Gómez Cabrera
+     * @version leer_info_estacionamiento 1.1
+     * @return String[]
+    */
+    public static String[] leer_info_estacionamiento(){
+        try{
+            File estacionamiento_txt = new File("infoEstacionamiento.txt");
+            Scanner scan3 = new Scanner(estacionamiento_txt);
+            String estacionamiento = scan3.nextLine();
+            String[] info_estacionamiento = estacionamiento.split(",");
+            return info_estacionamiento;
+        }
+        catch(Exception e){
+            String s = "FileReader_Estacionamiento: Archivo Desaparecido o Corrompido: "+e.getMessage();
+            throw new RuntimeException(s);
+        }
     }
 
+    /**
+     * metodo para leer con clase File los datos del archivo horariosMayorMovimiento.txt.
+     * recibe todos los datos, y lo regresa todo como arreglo dinámico con toda la información.
+     * El constructor de Estacionamiento recibe el arreglo para poder inicializar las propiedades de Estacionamiento cada vez que se ejecuta el programa.
+     * 
+     * @author José Daniel Gómez Cabrera
+     * @version leer_horarios_mayor_mov 1.1
+     * @return String[]
+    */
+    public static ArrayList<String> leer_horarios_mayor_mov(){
+        try{
+            File horarios_txt = new File("horariosMayorMovimiento.txt");
+            Scanner scan4 = new Scanner(horarios_txt);
+            String[] horarios = scan4.nextLine().split(",");
+            ArrayList<String> horarios_mayor_mov = new ArrayList<String>();
+            for(int i = 0; i < horarios.length; i++){
+                horarios_mayor_mov.add(horarios[i]);
+            }
+            return horarios_mayor_mov;
+        }
+        catch(Exception e){
+            String s = "FileReader_HorariosMayorMovimiento: Archivo Desaparecido o Corrompido: "+e.getMessage();
+            throw new RuntimeException(s);
+        }
+    }
 }

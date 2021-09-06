@@ -19,6 +19,7 @@ public class Parqueo {
     private int frecuencia_de_uso;
     private int tiempo_de_uso; //EN MINUTOS
     private boolean parqueo_ocupado;
+    private Carro car;
 
     /**
      * Constructor Parqueo con propiedades.
@@ -27,14 +28,48 @@ public class Parqueo {
      * @version Parqueo 1.1
      * @param Propiedades
     */
-    public Parqueo(String no_parqueo, String tamano, boolean parqueo_techado, boolean parqueo_aereo){
+    public Parqueo(String no_parqueo, String tamano, boolean parqueo_techado, boolean parqueo_aereo, int frecuencia, int tiempo_total, boolean parqueo_ocupado){
         this.no_parqueo = no_parqueo;
         this.tamano = tamano;
         this.parqueo_techado = parqueo_techado;
         this.parqueo_aereo = parqueo_aereo;
-        this.frecuencia_de_uso = 0;
-        this.tiempo_de_uso = 0;
-        this.parqueo_ocupado = false;
+        this.frecuencia_de_uso = frecuencia;
+        this.tiempo_de_uso = tiempo_total;
+        this.parqueo_ocupado = parqueo_ocupado;
+    }
+
+    /**
+     * Constructor Carro adicional para acceder al constructor real en clase Carro.
+     * 
+     * @author José Daniel Gómez Cabrera
+     * @version set_car 1.1
+     * @param Propiedades
+    */
+    public void set_car(String vehiculo, String hora, String minuto, String placa, String marca, String modelo){
+        car = new Carro(vehiculo, hora, minuto, placa, marca, modelo);
+    }
+
+    /**
+     * Constructor Carro adicional para acceder al constructor real en clase Carro.
+     * Es para solamente almacenar valores de cierto tipo.
+     * 
+     * @author José Daniel Gómez Cabrera
+     * @version set_car 1.2
+     * @param Propiedades
+    */
+    public void set_car2(String vehiculo, String placa, String marca, String modelo){
+        car = new Carro(vehiculo, placa, marca, modelo);
+    }
+
+    /**
+     * getter del carro.
+     * 
+     * @author José Daniel Gómez Cabrera
+     * @version get_car 1.1
+     * @return Carro
+    */
+    public Carro get_car(){
+        return this.car;
     }
 
     /**
@@ -125,5 +160,15 @@ public class Parqueo {
     */
     public boolean get_parqueo_ocupado(){
         return this.parqueo_ocupado;
+    }
+
+    /**
+     * getter del nombre del parqueo.
+     * 
+     * @author José Daniel Gómez Cabrera
+     * @version get_nombre_parqueo 1.1
+    */
+    public String get_nombre_parqueo(){
+        return this.no_parqueo;
     }
 }
